@@ -27,4 +27,16 @@ def print_board(board):
         if (row + 1) % 3 == 0:
             print border
 
+def test_tile(x, y, board):
+    pass
+
+def test_row(x, y, board):
+    pass
+
+def test_col(x, y, board):
+    pass
+
+def test_square(x, y, board):
+    pass
+
 print_board(BOARD)
