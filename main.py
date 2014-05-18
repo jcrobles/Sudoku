@@ -9,3 +9,14 @@ BOARD = [
     [' ', ' ', ' ', 4, 1, 9, ' ', ' ', 5],
     [' ', ' ', ' ', ' ', 8, ' ', ' ', 7, 9]]
 
+def print_board(board):
+    width = 9
+    height = 9
+    for row in range(width):
+        for col in range(height):
+            print board[row][col],
+        print '\n',
+
+
+
+print_board(BOARD)
