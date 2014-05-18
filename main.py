@@ -33,7 +33,9 @@ def test_tile(row, col, board):
         return [board[row][col]]
 
     for i in range(9):
-        if test_row(row, col, i+1, board) and test_col(row, col, i+1, board) and test_square(row, col, i+1, board):
+        if test_row(row, col, i+1, board) and \
+           test_col(row, col, i+1, board) and \
+           test_square(row, col, i+1, board):
             possibles.append(i+1)
     return possibles
 
@@ -65,7 +67,9 @@ def test_square(row, col, test, board):
                 return False
     return True
 
-
+def solve_board(board):
+    pass
 
 print_board(BOARD)
-print test_tile(8, 2, BOARD)
+solve_board(BOARD)
+print_board(BOARD)
