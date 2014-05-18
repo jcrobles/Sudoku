@@ -27,16 +27,45 @@ def print_board(board):
         if (row + 1) % 3 == 0:
             print border
 
-def test_tile(x, y, board):
-    pass
+def test_tile(row, col, board):
+    possibles = []
+    if isinstance(board[row][col], int):
+        return [board[row][col]]
 
-def test_row(x, y, board):
-    pass
+    for i in range(9):
+        if test_row(row, col, i+1, board) and test_col(row, col, i+1, board) and test_square(row, col, i+1, board):
+            possibles.append(i+1)
+    return possibles
 
-def test_col(x, y, board):
-    pass
+def test_row(row, col, test, board):
+    if isinstance(board[row][col], int):
+       return False
+    for x in range(9):
+        if board[row][x] == test:
+            return False
+    return True
 
-def test_square(x, y, board):
-    pass
+def test_col(row, col, test, board):
+    if isinstance(board[row][col], int):
+        return False
+    for x in range(9):
+        if board[x][col] == test:
+            return False
+    return True
+
+def test_square(row, col, test, board):
+    square_row = int(row/3)*3
+    #print square_row
+    square_col = int(col/3)*3
+    #print square_col
+
+    for row_local in range(3):
+        for col_local in range(3):
+            if board[square_row+row_local][square_col+col_local] == test:
+                return False
+    return True
+
+
 
 print_board(BOARD)
+print test_tile(8, 2, BOARD)
