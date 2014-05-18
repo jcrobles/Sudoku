@@ -1,13 +1,13 @@
 BOARD = [
-    [5, 3, ' ', ' ', 7, ' ', ' ', ' ', ' '],
-    [6, ' ', ' ', 1, 9, 5, ' ', ' ', ' '],
-    [' ', 9, 8, ' ', ' ', ' ', ' ', 6, ' '],
-    [8, ' ', ' ', ' ', 6, ' ', ' ', ' ', 3,],
-    [4, ' ', ' ', 8, ' ', 3, ' ', ' ', 6],
-    [7, ' ', ' ', ' ', 2, ' ', ' ', ' ', 6],
-    [' ', 6, ' ', ' ', ' ', ' ', 2, 8, ' '],
-    [' ', ' ', ' ', 4, 1, 9, ' ', ' ', 5],
-    [' ', ' ', ' ', ' ', 8, ' ', ' ', 7, 9]]
+    [6, ' ', 2, ' ', 8, ' ', 1, ' ', 9],
+    [3, ' ', 9, 1, 5, ' ', ' ', ' ', 2],
+    [8, ' ', ' ', 9, ' ', 6, ' ', 3, 4],
+    [' ', 3, 4, ' ', 1, ' ', 9, 2, ' '],
+    [' ', 6, ' ', 3, ' ', 9, 5, 7, ' '],
+    [' ', 9, 1, 6, ' ', 2, ' ', 4, ' '],
+    [4, ' ', ' ', ' ', 9, 1, 2, ' ', 5],
+    [' ', 5, 7, ' ', ' ', ' ', 4, 9, 3],
+    [9, 2, ' ', 5, 3, 4, ' ', ' ', ' ']]
 
 def print_board(board):
     width = 9
@@ -57,9 +57,7 @@ def test_col(row, col, test, board):
 
 def test_square(row, col, test, board):
     square_row = int(row/3)*3
-    #print square_row
     square_col = int(col/3)*3
-    #print square_col
 
     for row_local in range(3):
         for col_local in range(3):
@@ -67,8 +65,18 @@ def test_square(row, col, test, board):
                 return False
     return True
 
+def solved(board):
+    for row in range(9):
+        for col in range(9):
+            if not isinstance(board[row][col], int):
+                return False
+    return True
+
 def solve_board(board):
-    pass
+    while True:
+        if solved(board):
+            return
+        # do magic!
 
 print_board(BOARD)
 solve_board(BOARD)
