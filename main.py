@@ -12,11 +12,19 @@ BOARD = [
 def print_board(board):
     width = 9
     height = 9
+    border = "+-----------+-----------+-----------+"
+    print border
     for row in range(width):
+        print "|",
         for col in range(height):
             print board[row][col],
-        print '\n',
-
-
+            if col == 8:
+                print "|"
+            elif (col + 1) % 3 == 0:
+                print "|",
+            else:
+                print " ",
+        if (row + 1) % 3 == 0:
+            print border
 
 print_board(BOARD)
